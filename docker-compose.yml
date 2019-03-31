@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  ball8:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/ugabuga
+    ports:
+      - "8080:8080"
+    links:
+      - mongo
+  mongo:
+    image: mongo

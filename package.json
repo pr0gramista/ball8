@@ -1,0 +1,28 @@
+{
+  "name": "ball8",
+  "version": "1.0.0",
+  "description": "ball8 fake",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pr0gramista/ball8.git"
+  },
+  "keywords": [
+    "ugabuga"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pr0gramista/ball8/issues"
+  },
+  "homepage": "https://github.com/pr0gramista/ball8#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.13"
+  }
+}
