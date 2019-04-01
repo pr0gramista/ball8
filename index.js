@@ -22,6 +22,9 @@ const start = async () => {
     }
     next();
   });
+  app.get('/health', (req, res) => {
+    res.status(200).send('1.0.0')
+  });
 
   questions(app);
 
