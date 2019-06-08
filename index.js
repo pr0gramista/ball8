@@ -2,6 +2,7 @@ const express = require("express");
 const MongoClient = require("mongodb").MongoClient;
 const questions = require("./questions");
 const bodyParser = require("body-parser").json();
+const promMid = require('express-prometheus-middleware');
 
 const getMongo = async () => {
   if (process.env.MONGO_URL !== undefined) {
@@ -22,6 +23,13 @@ const start = async () => {
     }
     next();
   });
+
+  app.use(promMid({
+    metricsPath: '/metrics',
+    collectDefaultMetrics: true,
+    requestDurationBuckets: [0.1, 0.2, 0.5, 1, 1.5],
+  }));
+  
   app.get('/health', (req, res) => {
     res.status(200).send('1.0.1')
   });

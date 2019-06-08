@@ -1,3 +1,4 @@
+const prom = require('prom-client');
 const responses = [
   "Yes",
   "No",
@@ -9,6 +10,11 @@ const responses = [
   "UGABUGA",
   "Don't know bro"
 ];
+
+const counter = new prom.Counter({
+  name: 'questions_counter',
+  help: 'How many questions have been asked'
+});
 
 const getQuestions = async (req, res) => {
   if (req.mongo) {
@@ -24,10 +30,15 @@ const getQuestions = async (req, res) => {
   }
 };
 
+const sleep = async (ms) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const askQuestion = async (req, res) => {
+  counter.inc();
+
   // Let the ball sleep for a while
-  var waitTill = new Date(new Date().getTime() + 2000);
-  while(waitTill > new Date()){}
+  await sleep(Math.random() * 1000);
 
   const index = Math.floor(Math.random() * responses.length);
   const response = responses[index];
