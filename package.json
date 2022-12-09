@@ -22,7 +22,7 @@
   "homepage": "https://github.com/pr0gramista/ball8#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-prometheus-middleware": "^0.6.1",
     "mongodb": "^3.1.13"
   }
